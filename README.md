@@ -6,9 +6,9 @@ Native Android WebView wrapper for the KasHub token explorer.
 
 Install the latest public Android APK directly:
 
-[Download KasHub APK](downloads/KasHub-latest.apk)
+[Download KasHub APK](https://github.com/KaspaHUB21/KasHub.fyi-Android-App/releases/download/v1.0.12/KaspaTokenExplorer-Android-release-v1.0.12.apk)
 
-GitHub Release:
+Release page:
 
 [KasHub Android v1.0.12](https://github.com/KaspaHUB21/KasHub.fyi-Android-App/releases/tag/v1.0.12)
 
