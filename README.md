@@ -2,6 +2,16 @@
 
 Native Android WebView wrapper for the KasHub token explorer.
 
+## Download APK
+
+Install the latest public Android APK directly:
+
+[Download KasHub APK](downloads/KasHub-latest.apk)
+
+GitHub Release:
+
+[KasHub Android v1.0.12](https://github.com/KaspaHUB21/KasHub.fyi-Android-App/releases/tag/v1.0.12)
+
 ## App Details
 
 - Package ID: `kaspatokenexplorer.app`
@@ -61,5 +71,6 @@ This repository must not contain:
 
 - `keystore.properties`
 - `.jks` or `.keystore` files
-- generated `.apk` or `.aab` files
+- generated `.aab` files
+- generated `.apk` files outside the public `downloads/` folder
 - Gradle build/cache folders
