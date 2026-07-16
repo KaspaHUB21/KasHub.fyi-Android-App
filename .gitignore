@@ -1,0 +1,19 @@
+.gradle/
+build/
+app/build/
+
+# Local signing material. Never commit Play Store upload keys.
+local.properties
+keystore.properties
+*.jks
+*.keystore
+
+# Generated release artifacts.
+release/*.apk
+release/*.aab
+release/*.idsig
+
+# Local IDE/system files.
+.idea/
+*.iml
+.DS_Store

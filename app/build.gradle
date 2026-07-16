@@ -1,0 +1,50 @@
+apply plugin: "com.android.application"
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+def hasReleaseKeystore =
+    keystorePropertiesFile.exists() &&
+    keystoreProperties["storeFile"] &&
+    rootProject.file(keystoreProperties["storeFile"]).exists()
+
+android {
+    namespace "kaspatokenexplorer.app"
+    compileSdk 36
+    buildToolsVersion "36.0.0"
+
+    defaultConfig {
+        applicationId "kaspatokenexplorer.app"
+        minSdk 23
+        targetSdk 36
+        versionCode 13
+        versionName "1.0.12"
+    }
+
+    signingConfigs {
+        release {
+            if (hasReleaseKeystore) {
+                storeFile rootProject.file(keystoreProperties["storeFile"])
+                storePassword keystoreProperties["storePassword"]
+                keyAlias keystoreProperties["keyAlias"]
+                keyPassword keystoreProperties["keyPassword"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            if (hasReleaseKeystore) {
+                signingConfig signingConfigs.release
+            }
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+    }
+}
