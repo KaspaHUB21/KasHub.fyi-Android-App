@@ -60,6 +60,7 @@ public class MainActivity extends Activity {
         webView = new WebView(this);
         webView.setBackgroundColor(Color.rgb(2, 11, 16));
         webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        webView.clearCache(true);
         root.addView(webView, new FrameLayout.LayoutParams(
             FrameLayout.LayoutParams.MATCH_PARENT,
             FrameLayout.LayoutParams.MATCH_PARENT
@@ -76,8 +77,9 @@ public class MainActivity extends Activity {
         settings.setSupportZoom(false);
         settings.setBuiltInZoomControls(false);
         settings.setDisplayZoomControls(false);
+        settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
-        settings.setUserAgentString(settings.getUserAgentString() + " KasHubAndroid/1.0.7");
+        settings.setUserAgentString(settings.getUserAgentString() + " KasHubAndroid/1.0.17");
 
         KasHubBridge bridge = new KasHubBridge();
         webView.addJavascriptInterface(bridge, "KasHubAndroid");
@@ -128,6 +130,7 @@ public class MainActivity extends Activity {
 
         if (savedInstanceState != null) {
             webView.restoreState(savedInstanceState);
+            webView.reload();
         } else {
             Uri launchUri = getIntent() != null ? getIntent().getData() : null;
             webView.loadUrl(launchUri != null ? launchUri.toString() : HOME_URL);

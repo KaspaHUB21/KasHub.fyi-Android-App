@@ -19,8 +19,8 @@ android {
         applicationId "kaspatokenexplorer.app"
         minSdk 23
         targetSdk 36
-        versionCode 13
-        versionName "1.0.12"
+        versionCode 18
+        versionName "1.0.17"
     }
 
     signingConfigs {
